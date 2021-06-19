@@ -1,0 +1,282 @@
+/* FONTES */
+@font-face {
+    font-family: "Miso Bold";
+    src: url("../fonts/misoBold.otf");
+}
+
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+    display: block;
+}
+
+li{
+    list-style: none;
+}
+
+
+
+/* PADRÕES */
+
+body, html{
+    font-family: "Miso Bold";
+}
+
+div.container{
+    width: 100%;
+    max-width: 1080px;
+    margin:auto;
+    box-sizing: border-box;
+    padding: 0 30px;
+}
+
+div.separate{
+    width:100%;
+    display: table;
+    float:left;
+    clear:both;
+}
+
+div.content{
+    display: grid;
+    padding:60px 0 40px 0;
+}
+
+
+
+
+/* HEADER */
+
+header{
+    background:#fd2101;
+    width: 100%;
+    padding: 10px 0;
+    position: relative;
+    height: 35px;
+}
+
+header figure img.logo{
+    width: 150px;
+    float: left;
+    position:absolute;
+    padding:0 10px;
+}
+
+
+
+/* NAV */
+
+div.navBarMobile{
+    display: none;
+}
+
+div.navBarMobile img{
+    width: 25px;
+    box-sizing: border-box;
+}
+
+nav.mainNav{
+    margin: auto;
+    display: table;
+}
+
+nav.mainNav ul li{
+    display: inline-block;
+    margin:0 16px
+}
+
+nav.mainNav ul li a{
+    font-size: 1.4em;
+    color: #ffffff;
+    padding: 5px;
+}
+
+nav.mainNav ul li a.subNavIcon{
+    background: url(../img/arrow_down.png) no-repeat 100% 70% / 14px;
+    padding:0 20px
+}
+
+a.btnTopHelp{
+    color: #ffffff;
+    right:0;
+    top:0;
+    font-size: 1.4em;
+    position:absolute;
+    padding: 15px;
+}
+
+
+
+
+/* FOOTER */
+
+
+footer{
+    background: #F2EFEC;
+    display:table;
+    width: 100%;
+    color: #727376;
+    padding: 60px 0 40px 0;
+}
+
+footer figure img.logo{
+    display: table;
+    width: 145px;
+    margin-bottom: 20px;
+}
+
+footer p.about{
+    width: 100%;
+    max-width: 400px;
+    font-size: 1.5em;
+    float:left
+}
+
+footer nav.navBottom{
+    display:table;
+    float:right;
+    width: 210px;
+}
+
+footer nav.navBottom ul li{
+    display: block;
+    padding-bottom: 10px;
+    font-size: 1.4em;
+}
+
+footer div.separate{
+    border-bottom:1px solid gray
+}
+
+footer div.version{
+    float:left;
+    width: 100%;
+    margin-top:15px;
+    font-size:1.3em;
+}
+
+footer nav.social{
+    text-align: right;
+    width: 100%;
+    float:right;
+    padding: 20px 0;
+}
+
+
+footer nav.social li{
+    margin-left:25px
+}
+
+footer nav.social li a img{
+    width: 30px;
+}
+
+footer nav.social li:first-child a img{
+    width: 35px;
+}
+
+footer nav.terms{
+    float:left;
+    padding-top:20px;
+}
+
+footer nav.terms ul li{
+    margin-right:20px;
+    font-size:1.3em;
+}
+
+footer nav ul li{
+    display:inline-block
+}
+
+
+
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 961px){
+
+
+    /**** MOBILE ADJUSTMENTS *****/
+
+
+
+    /* HEADER  */
+
+    header{
+        height: auto;
+    }
+
+    header nav.mainNav,
+    header a.btnTopHelp{
+        display: none;
+    }
+
+    header figure img.logo{
+        position: initial;
+        margin:auto;
+        display: table;
+        float:none;
+        width: 190px;
+        padding:5px 0;
+    }
+
+    div.navBarMobile{
+        display: block;
+        position:absolute;
+        top:0;
+        padding:27px 20px;
+        box-sizing: border-box;
+    }
+
+
+
+    /* FOOTER */
+
+    footer p.about{
+        font-size: 1.3em;
+        float:none;
+    }
+
+    footer div.version {
+        display: none;
+    }
+
+    footer nav.navBottom{
+        float:left;
+        margin-top:40px
+    }
+
+
+    footer nav.social{
+        margin-top:-77px;
+    }
+
+    footer nav.social ul li{
+        margin-left:10px;
+    }
+
+    footer nav.social ul li a img{
+        width: 25px;
+    }
+
+    footer nav.social li:first-child a img{
+        width: 30px;
+    }
+
+    footer nav.terms ul li{
+        display: block;
+        margin:10px 0
+    }
+
+}
