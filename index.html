@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,8 +47,117 @@
 
     <div class="container">
 
+        <section class="top">
 
-        <h1>Content</h1>
+            <div class="salutation">Olá, visitante!</div>
+
+
+
+            <div class="addUnit">
+
+                <input type="text" class="srcAddUnit" id="srcAddUnit" placeholder="Adicionar unidade">
+                
+                <div class="wrpUnitTags">
+
+                    <input type="text" class="unitTag" value="Sheraton, Leblon, Rio de Janeiro">
+                    <input type="text" class="unitTag" value="Maguje, Jardim Botânico, Rio de Janeiro">
+                
+                </div>
+            </div>
+
+
+
+            <form action="" class="searchForm" id="searchForm">
+
+                <!-- RENGE DATE -->
+
+                <div class="rangeDate">
+
+                    <figure>
+
+                        <img src="img/icon_calendar.png" alt="">
+
+                    </figure>
+                    
+                    <input type="text" class="initialDate" name="initialDate" id="initialDate" value="22/01/21"><span>,</span>
+                    <input type="text" class="firstDate" name="firstDate" id="firstDate" value="23/01/21">
+
+                    
+                </div>
+
+
+                
+                <!-- FILTER OPTIONS -->
+
+                <div class="filterOptions">
+
+                    <!-- convidados -->
+
+                    <div class="wrpFilter">
+
+                        <label for="guests" class="titleFilterOpt">Convidados</label>
+
+                        <select name="guests" id="guests">
+
+                            <option value="0">50</option>
+
+                        </select>
+
+                    </div> <!-- end wrp filter -->
+
+
+                    <!-- turno -->
+
+                    <div class="wrpFilter">
+
+                        <label for="shift" class="titleFilterOpt">Turno</label>
+
+                        <select name="shift" id="shift">
+
+                            <option value="0">Manhã</option>
+
+                        </select>
+
+                    </div> <!-- end wrp filter -->
+
+
+                    <!-- ordenar -->
+                    
+                    <div class="wrpFilter">
+
+                        <label for="order" class="titleFilterOpt">Ordenar por</label>
+
+                        <select name="order" id="order">
+
+                            <option value="0">Mais vendidos</option>
+
+                        </select>
+
+                    </div> <!-- end wrp filter -->
+
+                </div>
+
+
+
+                <!-- EXTERNAL OPTIONS CHECK -->
+
+                <div class="externalOptions"> 
+
+                    <label for="extOptCheck">Opções externas (festa em casa, clube, play, outros)</label>
+                    <input name="extOptCheck" id="extOptCheck" type="checkbox">
+
+                </div>
+
+
+
+
+                <button class="btnSearch">Buscar</button>
+
+
+            </form> <!-- end search form -->
+
+
+        </section> <!-- end top section -->
 
 
     </div> <!-- end container -->

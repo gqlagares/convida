@@ -22,7 +22,23 @@ li{
     list-style: none;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 
+button{
+    border:none;
+    background: none;
+    padding:10px 20px;
+    box-sizing: border-box;
+}
+
+select{
+    -webkit-appearance: none;
+}
 
 /* PADRÕES */
 
@@ -60,14 +76,14 @@ header{
     width: 100%;
     padding: 10px 0;
     position: relative;
-    height: 35px;
+    height: 40px;
 }
 
 header figure img.logo{
-    width: 150px;
+    width: 170px;
     float: left;
     position:absolute;
-    padding:0 10px;
+    padding:0 30px;
 }
 
 
@@ -86,6 +102,7 @@ div.navBarMobile img{
 nav.mainNav{
     margin: auto;
     display: table;
+    padding-top:2px;
 }
 
 nav.mainNav ul li{
@@ -94,24 +111,227 @@ nav.mainNav ul li{
 }
 
 nav.mainNav ul li a{
-    font-size: 1.4em;
+    font-size: 1.5em;
     color: #ffffff;
     padding: 5px;
 }
 
 nav.mainNav ul li a.subNavIcon{
     background: url(../img/arrow_down.png) no-repeat 100% 70% / 14px;
-    padding:0 20px
+    padding:0 20px 0 0;
 }
 
 a.btnTopHelp{
     color: #ffffff;
     right:0;
     top:0;
-    font-size: 1.4em;
+    font-size: 1.5em;
     position:absolute;
-    padding: 15px;
+    padding: 17px 30px;
 }
+
+
+
+
+
+
+/* CONTENT */
+
+
+div.salutation{
+    font-size: 2em;
+    color: #9fdb28;
+    text-align: center;
+}
+
+div.addUnit{
+    display: table;
+    margin:auto;
+    width: 100%;
+    /* background: gray; */
+}
+
+div.wrpUnitTags{
+    margin:auto;
+    width: 724px;
+}
+
+
+div.addUnit input.srcAddUnit{
+    font-family: "Miso Bold";
+    font-size: 1.3em;
+    background: url(../img/icon_search.png) no-repeat 10px 15px / 30px;
+    padding:17px 15px;
+    box-sizing: border-box;
+    text-indent: 35px;
+    background-color: #F2EFEC;
+    border:none;
+    border-radius: 7px;
+    width: 100%;
+    max-width: 510px;
+    margin: 30px auto 0 auto;
+    display: table;
+}
+
+
+div.addUnit input.unitTag{
+    font-family: "Miso Bold";
+    font-size: 1.3em;
+    color: #BDBFC1;
+    padding:10px 15px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border:2px solid #BDBFC1;
+    width: 100%;
+    max-width: 354px;
+    margin: 10px 3px;
+    background: url(../img/icon_close.png) no-repeat 95% / 12px;
+}
+
+
+
+div.addUnit input::placeholder{
+    color: #BDBFC1;
+}
+
+div.addUnit input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #BDBFC1;
+}
+  
+div.addUnit input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #BDBFC1;
+}
+
+
+div.rangeDate{
+    display: table;
+    margin:auto;
+    width: 100%;
+    max-width: 275px;
+    /* background: rgb(255, 238, 0); */
+    text-align: center;
+    margin-top:25px;
+    margin-bottom:20px;
+    cursor:pointer
+}
+
+div.rangeDate figure img{
+    width: 32px;
+    float:left;
+    margin-right: 15px;
+    margin-top:4px;
+}
+
+div.rangeDate span{
+    float:left;
+    display:table;
+    font-family: "Miso Bold";
+    font-size: 1.6em;
+    color: #a0cbd5;
+    margin-right: 7px;
+    margin-top:3px;
+    margin-left: 2px;
+}
+
+div.rangeDate input{
+    float:left;
+    display: table;
+    border:none;
+    background: none;
+    font-family: "Miso Bold";
+    font-size: 2em;
+    color: #a0cbd5;
+    width: 105px;
+    /* background: burlywood; */
+}
+
+
+div.filterOptions{
+    display: table;
+    /* background: rgb(119, 255, 226); */
+    margin:auto;
+    border:2px solid #bdbfc1;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+label.titleFilterOpt{
+    font-size: 1.4em;
+    color: #727376;
+    width: 100%;
+    display: table;
+    margin-bottom: 5px;
+    float: left;
+}
+
+div.filterOptions div.wrpFilter:last-child {
+    border-right: none;
+}
+
+div.wrpFilter{
+    display: table;
+    float:left;
+    width: 160px;
+    border-right:2px solid #bdbfc1;
+    /* background: rgb(119, 255, 226); */
+    padding:10px 10px 10px 7px;
+    box-sizing: border-box;
+}
+
+div.wrpFilter select{
+    cursor:pointer;
+    -webkit-appearance: none;
+    font-family: "Miso Bold";
+    font-size: 1.5em;
+    color: #bdbfc1;
+    width: 100%;
+    border:none;
+    background: url("../img/arrow_down_BDBFC1.png") no-repeat right/ 20px;
+}
+
+div.externalOptions{
+    display: table;
+    margin:auto;
+    padding:30px 0;
+    box-sizing: border-box;
+}
+
+div.externalOptions label{
+    font-size: 1.5em;
+    color:#727376;
+}
+
+div.externalOptions input{
+    width: 30px;
+    height: 30px;
+    float:left;
+    margin-right: 10px;
+    -webkit-appearance: none;
+    border:1px solid #727376;
+    border-radius:3px;
+    background:none;
+}
+
+div.externalOptions input:checked{
+    background: url(../img/icon-check.png) no-repeat 2px -2px #f2efec;
+}
+
+
+
+button.btnSearch{
+    font-family: "Miso Bold";
+    font-size:1.5em;
+    background: #ff9717;
+    color:#fff;
+    display: table;
+    margin:0 auto 10px auto;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+
+}
+
+
 
 
 
@@ -241,6 +461,54 @@ footer nav ul li{
 
 
 
+    /* CONTENT MOBILE */
+
+    div.salutation{
+        float: left;
+        font-size: 2.5em;
+    }
+
+    div.addUnit input.srcAddUnit{
+        margin: 30px 0 0 0;
+        max-width: inherit;
+        font-size: 1.8em;
+        padding: 15px 15px
+    }
+
+    div.wrpUnitTags {
+        margin: inherit;
+        width: auto;
+        
+    }
+
+    div.wrpUnitTags input.unitTag{
+        display: block;
+        margin-left: 0;
+    }
+
+    div.rangeDate {
+        margin: 25px 0 20px 0;
+    }
+
+    div.rangeDate figure img {
+        margin-top: 0;
+    }
+
+    div.wrpFilter {
+        width: 33.3%;
+    }
+
+    div.filterOptions {
+        margin:inherit;
+        width: 100%;
+    }
+
+    div.externalOptions {
+        margin:inherit;
+    }
+
+
+
     /* FOOTER */
 
     footer p.about{
@@ -277,6 +545,52 @@ footer nav ul li{
     footer nav.terms ul li{
         display: block;
         margin:10px 0
+    }
+
+}
+
+
+@media screen and (max-width: 620px){
+
+    div.wrpFilter {
+        width: 32%;
+    }
+
+    div.filterOptions div.wrpFilter:last-child{
+        width: 36%;
+    }
+
+    div.wrpFilter {
+        padding: 10px 5px 10px 7px;
+    }
+
+    div.wrpFilter select {
+        background-size: 15px;
+        font-size: 1.3em;
+    } 
+
+    div.externalOptions input{
+        position: relative;
+        top:-20px;
+    }
+
+    div.externalOptions input{
+        margin-top:20px
+    }
+
+
+}
+
+
+
+@media screen and (max-width: 500px){
+
+    div.externalOptions{
+        text-indent: 40px;
+    }
+
+    div.externalOptions input{
+        margin-top:-3px;
     }
 
 }
