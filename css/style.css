@@ -22,6 +22,10 @@ li{
     list-style: none;
 }
 
+img{
+    display: block;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -30,6 +34,7 @@ button:focus {
 }
 
 button{
+    font-family: "Miso Bold";
     border:none;
     background: none;
     padding:10px 20px;
@@ -48,8 +53,8 @@ body, html{
 
 div.container{
     width: 100%;
-    max-width: 1080px;
-    margin:auto;
+    max-width: 1125px;
+    margin: auto;
     box-sizing: border-box;
     padding: 0 30px;
 }
@@ -66,7 +71,29 @@ div.content{
     padding:60px 0 40px 0;
 }
 
+.btn{
+    text-align: center;
+    display: block;
+    padding: 5px 20px;
+    float: left;
+    background: rgb(185, 185, 185);
+    border-radius: 5px;
+    color:#ffffff;
+}
 
+.btn.disable{
+    pointer-events: none;
+    cursor: default;
+    background: #BDBFC1;
+}
+
+.btn-01{
+    background: #FD2101;
+}
+
+.btn-02{
+    background:#FF9717;
+}
 
 
 /* HEADER */
@@ -316,8 +343,6 @@ div.externalOptions input:checked{
     background: url(../img/icon-check.png) no-repeat 2px -2px #f2efec;
 }
 
-
-
 button.btnSearch{
     font-family: "Miso Bold";
     font-size:1.5em;
@@ -330,6 +355,199 @@ button.btnSearch{
     max-width: 350px;
 
 }
+
+
+
+
+/* SECTION RESULTS */
+
+section.result{
+    display:grid;
+    background: #F2EFEC;
+}
+
+section.result p.dateResults{
+    text-align: center;
+    font-size: 2.3em;
+    color:#727376;
+    padding: 25px 0 20px 0;
+}
+
+section.result ul li.listItem{
+    /* background: chartreuse; */
+    box-sizing: border-box;
+    padding:7px;
+    float: left;
+    
+}
+
+section.result ul li.listItem:first-child{
+    padding-left:0;
+}
+
+section.result ul li.listItem:last-child{
+    padding-right: 0;
+}
+
+
+section.result ul li .wrpResults{
+    width: 100%;
+    max-width: 255px;
+    background: rgb(255, 255, 255);
+    float:left;
+    border-radius: 10px;
+    position: relative;
+}
+
+section.result ul li figure img.tag{
+    position: absolute;
+    top:0
+}
+
+section.result ul li figure img.tagPromo{
+    width: 35px;
+    margin:3px 0 0 3px;
+}
+
+section.result ul li figure img.tagSold{
+    width: 90px;
+    margin-top:75px;
+    margin-left:3px
+}
+
+section.result ul li figure img.itemLogo{
+    width: 140px;
+    margin:40px auto 0 auto;
+}
+
+section.result ul li figure img.tagExtOpt{
+    right:0;
+    width: 65px;
+}
+
+div.itemResultControls{
+    display: table;
+    width: 100%;
+    padding:10px 10px 0 10px;
+    box-sizing: border-box;
+}
+
+ol.bulletsGroup{
+    margin: 5px auto 0 auto;
+    display: table;
+
+}
+
+ol.bulletsGroup li{
+    width: 8px;
+    height: 8px;
+    background: #F2EFEC;;
+    float: left;
+    margin: 7px;
+    border-radius: 100%;
+
+}
+
+
+
+div.itemResultControls span img{
+    width: 10px;
+    height: 20px;
+
+}
+
+div.itemResultControls span.prev{
+    float:left;
+}
+
+div.itemResultControls span.next{
+    float:right;
+}
+
+
+div.wrpGalleryItem{
+
+    background: #bdbfc1;
+    padding-top: 20px;
+
+
+}
+
+div.wrpGalleryItem ul li img{
+    width:100%;
+
+}
+
+div.itemCaption{
+    text-align: center;
+    background: #727376;
+    color: #fff;
+    box-sizing: border-box;
+    padding:5px 0
+}
+
+
+div.itemDetails{
+    box-sizing: border-box;
+    padding:10px 15px;
+    color:#848688;
+    line-height: 22px;
+}
+
+div.itemDetails a.more{
+    color:#FF9717;
+    display: initial;
+}
+
+div.itemDetails a.viewPrice{
+    color:#A0CBD5;
+}
+
+
+div.itemRating{
+    /* background: red; */
+    display: table;
+    float: right;
+    margin-top:-35px;
+    text-align: right;
+}
+
+
+div.itemRating ul{
+    display: table;
+    width: 100%;
+    /* background: chartreuse; */
+}
+
+div.itemRating ul li.star{
+
+    background: url(../img/star_empty.png) no-repeat 0 0 / 20px;
+    width: 20px;
+    height: 20px;
+    float: left
+
+}
+
+div.itemRating ul li.star.checked{
+
+    background: url(../img/star_full.png) no-repeat 0 0 / 20px;;
+
+}
+
+li.listItem a.btn.btn-01{
+    
+    width: 100%;
+    box-sizing: border-box;
+    margin-top:7px;
+    margin-bottom:10px
+}
+
+
+
+
+
+
+
 
 
 
@@ -576,6 +794,25 @@ footer nav ul li{
 
     div.externalOptions input{
         margin-top:20px
+    }
+
+    section.result ul li .wrpResults{
+        max-width: inherit;
+    }
+
+    section.result p.dateResults{
+        font-size: 2em;
+        text-align: left;
+    }
+
+    section.result ul li.listItem{
+        padding-left:0;
+        padding-right: 0;
+    }
+
+    li.listItem a.btn.btn-01{
+        font-size: 1.5em;
+        padding:15px 0;
     }
 
 
