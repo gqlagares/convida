@@ -12,6 +12,11 @@
     padding:0;
 }
 
+html{
+    touch-action: pan-x pan-y;
+    height: 100%;
+}
+
 a{
     text-decoration: none;
     color:inherit;
@@ -24,6 +29,8 @@ li{
 
 img{
     display: block;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 input:focus,
@@ -45,6 +52,96 @@ select{
     -webkit-appearance: none;
 }
 
+
+
+/* CUSTOM SELECT */
+
+
+/*the container must be positioned relative:*/
+.custom-select {
+    position: relative;
+    font-family: "Miso Bold";
+    font-size: 1.4em;
+  }
+  
+  .custom-select select {
+    display: none; /* hide original SELECT element: */
+  }
+  
+  .select-selected {
+    background-color: #ffffff;
+  }
+  
+  /*style the arrow inside the select element:*/
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 7px;
+    right: 0px;
+    width: 20px;
+    height: 15px;
+    /* border: 6px solid transparent; */
+    background: url("../img/arrow_down_BDBFC1.png") no-repeat right/ 20px;
+  }
+  
+  /*point the arrow upwards when the select box is open (active):*/
+  .select-selected.select-arrow-active:after {
+    /* border-color: transparent transparent rgb(136, 136, 136) transparent; */
+    background: url("../img/arrow_down_BDBFC1.png") no-repeat right/ 20px;
+    top: 7px;
+  }
+  
+  /*style the items (options), including the selected item:*/
+  .select-items div{
+    padding: 3px 7px;
+    box-sizing: border-box;
+    
+  }
+
+  .select-selected {
+    color: #b8b8b8;
+  }
+  
+  .select-items div,.select-selected {
+    /* color: #b8b8b8; */
+    /* padding: 5px 0; */
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  /*style items (options):*/
+  .select-items {
+    position: absolute;
+    background-color: #ffffff;
+    color:#727376;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    box-shadow: 0 0 15px rgb(206, 206, 206);
+    border: 1px solid #565658;
+  }
+  
+  /*hide the items when the select box is closed:*/
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+
+
+
+
+
+
 /* PADRÕES */
 
 body, html{
@@ -57,6 +154,7 @@ div.container{
     margin: auto;
     box-sizing: border-box;
     padding: 0 30px;
+    display: flow-root;
 }
 
 div.separate{
@@ -67,7 +165,7 @@ div.separate{
 }
 
 div.content{
-    display: grid;
+    /* display: grid; */
     padding:60px 0 40px 0;
 }
 
@@ -75,7 +173,7 @@ div.content{
     text-align: center;
     display: block;
     padding: 5px 20px;
-    float: left;
+    /* float: left; */
     background: rgb(185, 185, 185);
     border-radius: 5px;
     color:#ffffff;
@@ -94,6 +192,25 @@ div.content{
 .btn-02{
     background:#FF9717;
 }
+
+.floatNone{
+    float:none;
+}
+
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+
+
+
 
 
 /* HEADER */
@@ -164,11 +281,23 @@ a.btnTopHelp{
 
 /* CONTENT */
 
+section.top {
+    padding-bottom: 40px;
+}
 
 div.salutation{
     font-size: 2em;
     color: #9fdb28;
     text-align: center;
+}
+
+p.msgTop{
+    text-align: center;
+    font-size: 1.6em;
+    color:#727376;
+    width: 100%;
+    max-width: 675px;
+    margin:auto
 }
 
 div.addUnit{
@@ -178,13 +307,13 @@ div.addUnit{
     /* background: gray; */
 }
 
-div.wrpUnitTags{
+ul.wrpUnitTags{
     margin:auto;
-    width: 724px;
+    display: table;
 }
 
 
-div.addUnit input.srcAddUnit{
+div.addUnit .srcAddUnit{
     font-family: "Miso Bold";
     font-size: 1.3em;
     background: url(../img/icon_search.png) no-repeat 10px 15px / 30px;
@@ -196,37 +325,37 @@ div.addUnit input.srcAddUnit{
     border-radius: 7px;
     width: 100%;
     max-width: 510px;
-    margin: 30px auto 0 auto;
+    margin: 30px auto 5px auto;
     display: table;
 }
 
 
-div.addUnit input.unitTag{
+div.addUnit .unitTag{
     font-family: "Miso Bold";
     font-size: 1.3em;
     color: #BDBFC1;
-    padding:10px 15px;
+    padding:10px 30px 10px 15px;
     box-sizing: border-box;
     border-radius: 7px;
     border:2px solid #BDBFC1;
-    width: 100%;
-    max-width: 354px;
-    margin: 10px 3px;
-    background: url(../img/icon_close.png) no-repeat 95% / 12px;
+    margin: 5px 3px;
+    /* background: url(../img/icon_close.png) no-repeat 95% / 12px; */
+    float:left;
+    position: relative;
+    cursor:context-menu;
 }
 
-
-
-div.addUnit input::placeholder{
-    color: #BDBFC1;
+div.addUnit .unitTag span.closeTag{
+    padding:3px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 7px;
+    top:30%;
+    cursor: pointer;
 }
 
-div.addUnit input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #BDBFC1;
-}
-  
-div.addUnit input::-ms-input-placeholder { /* Microsoft Edge */
-    color: #BDBFC1;
+div.addUnit .unitTag span.closeTag img{
+    width: 12px; 
 }
 
 
@@ -279,7 +408,6 @@ div.filterOptions{
     margin:auto;
     border:2px solid #bdbfc1;
     border-radius: 15px;
-    overflow: hidden;
 }
 
 label.titleFilterOpt{
@@ -288,7 +416,6 @@ label.titleFilterOpt{
     width: 100%;
     display: table;
     margin-bottom: 5px;
-    float: left;
 }
 
 div.filterOptions div.wrpFilter:last-child {
@@ -309,7 +436,7 @@ div.wrpFilter select{
     cursor:pointer;
     -webkit-appearance: none;
     font-family: "Miso Bold";
-    font-size: 1.5em;
+    font-size: 1em;
     color: #bdbfc1;
     width: 100%;
     border:none;
@@ -334,13 +461,14 @@ div.externalOptions input{
     float:left;
     margin-right: 10px;
     -webkit-appearance: none;
-    border:1px solid #727376;
+    border:2px solid #929292;
     border-radius:3px;
     background:none;
 }
 
 div.externalOptions input:checked{
-    background: url(../img/icon-check.png) no-repeat 2px -2px #f2efec;
+    background: url(../img/icon-check.png) no-repeat 3px 0px #f2efec;
+    background-size: 20px;
 }
 
 button.btnSearch{
@@ -351,8 +479,9 @@ button.btnSearch{
     display: table;
     margin:0 auto 10px auto;
     border-radius: 5px;
-    width: 100%;
+    width: 90%;
     max-width: 350px;
+    cursor:pointer;
 
 }
 
@@ -362,74 +491,180 @@ button.btnSearch{
 /* SECTION RESULTS */
 
 section.result{
-    display:grid;
     background: #F2EFEC;
+    padding: 40px 0;
+    /* display: flex; */
+}
+
+section.result.clr2{
+    background:#A0CBD5;
+}
+
+section.result.clr3{
+    background:#fffffF;
 }
 
 section.result p.dateResults{
     text-align: center;
     font-size: 2.3em;
     color:#727376;
-    padding: 25px 0 20px 0;
+    padding-bottom:20px;
 }
 
-section.result ul li.listItem{
+section.result p.dateResults.dataRes02{
+    color:#fff;
+}
+
+section.result p.dateResults.dataRes03{
+    color:#A0CBD5;
+}
+
+
+section.result ul.listItem{
+    float: left;
+    /* background: red; */
+    position: relative;
+}
+
+section.result ul li.itemRes{
     /* background: chartreuse; */
     box-sizing: border-box;
     padding:7px;
     float: left;
+    width: 100%;
     
 }
 
-section.result ul li.listItem:first-child{
+/* section.result ul li.item:first-child{
     padding-left:0;
 }
 
-section.result ul li.listItem:last-child{
+section.result ul li.item:last-child{
     padding-right: 0;
+} */
+
+
+section.result.otherSuggestionsResults ul li .wrpResults{
+    border: 1px solid #D2D3D5;
+    box-sizing: border-box;
 }
 
 
+
+section.result ul li .wrpResults h2{
+    font-size: 1.9em;
+    color: #727376;
+    text-align: center;
+    padding-top: 30px;
+    box-sizing: border-box;
+    padding-bottom: 13px;
+}
+
+section.result ul li .wrpResults .headerResultArea{
+    height: 90px;
+    width: 100%;
+    float: left;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    margin-bottom:25px;
+}
+
+section.result ul li div.countdownTag{
+    background: #A0CBD5;
+    display: table;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 1px 3px 1px 20px;
+    position: absolute;
+    top: 5.2px;
+    left: 25px;
+}
+
+span.infoShowcase {
+    color: white;
+    background: #BDBFC1;
+    width: 100%;
+    float: left;
+    padding: 2px 10px;
+    margin-left: -7px;
+    margin-top: 41px;
+    font-size: 1.15rem;
+}
+
+span.infoShowcase span{
+    color:#797979;
+}
+
+p.counter {
+    float: right;
+    margin-top: -21px;
+    margin-right: 5px;
+    color:white;
+
+}
+
+section.result ul li div.countdownTag span{
+    display: block;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color:white;
+    line-height: 14px;
+}
+
+section.result ul li div.countdownTag span:first-child{
+    color: #727376;
+}
+
+section.result ul li div.countdownTag span:nth-child(2){
+    font-size: 1em;
+}
+
 section.result ul li .wrpResults{
     width: 100%;
-    max-width: 255px;
+    max-width: 252px;
     background: rgb(255, 255, 255);
     float:left;
     border-radius: 10px;
     position: relative;
+    overflow: hidden;
 }
 
-section.result ul li figure img.tag{
+img.tag{
     position: absolute;
-    top:0
+    top:-3px;
+    z-index: 99;
 }
 
 section.result ul li figure img.tagPromo{
-    width: 35px;
-    margin:3px 0 0 3px;
+    width: 45px;
+    margin:8px 0 0 0;
 }
 
-section.result ul li figure img.tagSold{
+img.tagSold,
+img.tagReserved{
     width: 90px;
-    margin-top:75px;
+    margin-top:23px;
     margin-left:3px
 }
 
+
 section.result ul li figure img.itemLogo{
     width: 140px;
-    margin:40px auto 0 auto;
+    margin:auto;
 }
 
 section.result ul li figure img.tagExtOpt{
-    right:0;
+    right:-1px;
     width: 65px;
 }
 
-div.itemResultControls{
-    display: table;
+div.itemResultControls, .owl-nav{
+    /* display: table;
     width: 100%;
-    padding:10px 10px 0 10px;
-    box-sizing: border-box;
+    padding:0 10px 0 10px;
+    box-sizing: border-box; */
 }
 
 ol.bulletsGroup{
@@ -450,32 +685,109 @@ ol.bulletsGroup li{
 
 
 
-div.itemResultControls span img{
+div.itemResultControls span img,
+.owl-nav button img{
     width: 10px;
     height: 20px;
 
 }
 
-div.itemResultControls span.prev{
+div.itemResultControls span.prev,
+.owl-nav button.owl-prev{
     float:left;
 }
 
-div.itemResultControls span.next{
+div.itemResultControls span.next,
+.owl-nav button.owl-next{
     float:right;
 }
 
-
-div.wrpGalleryItem{
-
-    background: #bdbfc1;
-    padding-top: 20px;
-
-
+.owl-nav{
+    position: absolute;
+    top:-37px;
+    width: 100%;
+    height: 40px;
 }
 
-div.wrpGalleryItem ul li img{
-    width:100%;
+.owl-nav button span{
+    position: absolute;
+    z-index: 999;
+    padding:10px;
+}
 
+.owl-nav button span.next{
+    right: 0;
+}
+
+.owl-nav button span.prev{
+    left: 0;
+}
+
+.owl-dots{
+    position: absolute;
+    text-align: center;
+    top:-23px;
+    right: 0;
+    left:0;
+}
+
+
+.showcase {
+    float: left;
+    padding-top: 26px;
+    margin-top: 9px;
+}
+
+button.owl-dot span {
+    background: #F2EFEC;
+    width: 8px;
+    height: 8px;
+    float: left;
+    margin:7px;
+    border-radius: 100%;
+}
+
+
+button.owl-dot.active span{
+    width: 10px;
+    height: 10px;
+    background: #848688;
+}
+
+div.wrpGalleryItem{
+    background: #bdbfc1;
+    position: relative;
+}
+
+div.wrpGalleryItem .trashAndLikeBtn{
+    position: absolute;
+    top:0;
+    right: 0;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+div.wrpGalleryItem .trashAndLikeBtn span{
+    background: #ffffff;
+    display: table;
+    float:left;
+    padding:5px;
+    border-radius: 100%;
+    box-sizing: border-box;
+    margin:3px;
+    border: 2px solid #BDBFC1;
+    cursor: pointer;
+    /* width: 13px;
+    height: 13px; */
+}
+
+div.wrpGalleryItem .trashAndLikeBtn span img{
+    width: 13px;
+}
+
+div.wrpGalleryItem ul.galleryItem li img{
+    width:100%;
+    height: 160px;
 }
 
 div.itemCaption{
@@ -489,9 +801,22 @@ div.itemCaption{
 
 div.itemDetails{
     box-sizing: border-box;
-    padding:10px 15px;
-    color:#848688;
+    padding: 10px 10px 0 15px;
+    color: #848688;
     line-height: 22px;
+}
+
+div.itemDetails p{
+    width: 100%;
+    display: table;
+}
+
+div.itemDetails p span{
+    float: left;
+}
+
+div.itemDetails p span.redLink{
+    color: red;
 }
 
 div.itemDetails a.more{
@@ -504,11 +829,13 @@ div.itemDetails a.viewPrice{
 }
 
 
+
+
 div.itemRating{
     /* background: red; */
     display: table;
     float: right;
-    margin-top:-35px;
+    margin-top:-41px;
     text-align: right;
 }
 
@@ -534,15 +861,120 @@ div.itemRating ul li.star.checked{
 
 }
 
-li.listItem a.btn.btn-01{
+li.itemRes a.btn.btn-01{
     
-    width: 100%;
+    width: 90%;
     box-sizing: border-box;
-    margin-top:7px;
-    margin-bottom:10px
+    margin: 10px auto 10px auto;
+    display: table;
+    
+
+}
+
+div.navListControls{
+    position: relative;
+}
+
+div.navListItem{
+    width: 100%;
+    /* background:greenyellow; */
+    float: left;
+    position: relative;
+    height: 60px;
+    margin-top: -250px;
+    
+}
+
+div.navListItem span{
+    display: table;
+    cursor:pointer
+}
+
+div.navListItem span img{
+    
+    width:60px;
+}
+
+div.navListItem span.prevItem{
+    position: absolute;
+    left:0;
+    /* background: hotpink; */
+    display: table;
+    margin-left: -85px;
+
+}
+
+div.navListItem span.nextItem{
+    position: absolute;
+    right:0;
+    /* background: hotpink; */
+    display: table;
+    margin-right: -80px;
 }
 
 
+
+
+
+
+
+
+/* SEARCH CONVIDA */
+
+section.srcConvida{
+    background: #F2EFEC;
+    padding-top: 20px;
+    width: 100%;
+}
+
+div.wrpSrcConvida{
+    width: 100%;
+    background: white;
+    display: table;
+    padding:50px 0;
+}
+
+div.wrpSrcConvida.formart2{
+    padding: 50px 20px 0 20px;
+    box-sizing: border-box;
+}
+
+section.srcConvida p{
+    font-size: 1.5em;
+    text-align: center;
+    color: #727376;
+    line-height: 36px;
+
+}
+
+section.srcConvida .btnSearch{
+    margin:20px auto;
+}
+
+section.srcConvida div.addUnit{
+    text-align: center;
+
+}
+
+section.srcConvida div.addUnit .unitTagSrc {
+    border: 1px solid #BDBFC1;
+    font-size: 1.3em;
+    color: #BDBFC1;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 6px 6px;
+    display: inline-block;
+    cursor: pointer;
+    text-indent: -1px;
+}
+
+.unitTagSrc.active{
+    background: #A0CBD5;
+    color:white !important;
+    border: 1px solid #A0CBD5 !important;
+
+}
 
 
 
@@ -635,12 +1067,35 @@ footer nav ul li{
     display:inline-block
 }
 
+div.joinChat{
+    position: fixed;
+    right: 50px;
+    bottom:50px;
+    z-index: 999;
+}
+
+div.joinChat a img{
+    border-radius: 100%;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
 
 
 
 
 
 /* MEDIA QUERIES */
+
+
+@media screen and (max-width: 1280px){
+
+    div.navListItem{
+        display: none;
+    }
+
+
+}
+
+
 
 @media screen and (max-width: 961px){
 
@@ -686,23 +1141,46 @@ footer nav ul li{
         font-size: 2.5em;
     }
 
-    div.addUnit input.srcAddUnit{
-        margin: 30px 0 0 0;
+    p.msgTop{
+        float: left;
+        text-align: left;
+        font-size: 1.5em;
         max-width: inherit;
-        font-size: 1.8em;
+    }
+
+    div.addUnit input.srcAddUnit{
+        margin: 30px 0 5px 0;
+        max-width: inherit;
+        font-size: 1.5em;
         padding: 15px 15px
     }
 
     div.wrpUnitTags {
         margin: inherit;
         width: auto;
-        
     }
 
-    div.wrpUnitTags input.unitTag{
+    section.result ul li figure img.tagPromo {
+        width: 50px;
+    }
+
+    section.result ul li div.countdownTag {
+        border-bottom-left-radius: 10px;
+    }
+
+    section.result ul li div.countdownTag span {
+        font-size: 1em;
+        line-height: 16px;
+    }
+
+    div.wrpUnitTags .unitTag{
         display: block;
         margin-left: 0;
     }
+
+
+
+
 
     div.rangeDate {
         margin: 25px 0 20px 0;
@@ -784,7 +1262,7 @@ footer nav ul li{
 
     div.wrpFilter select {
         background-size: 15px;
-        font-size: 1.3em;
+        font-size: 1em;
     } 
 
     div.externalOptions input{
@@ -801,21 +1279,150 @@ footer nav ul li{
     }
 
     section.result p.dateResults{
-        font-size: 2em;
+        font-size: 2.1em;
         text-align: left;
+        padding: 0 25px;
+        box-sizing: border-box;
     }
 
-    section.result ul li.listItem{
-        padding-left:0;
-        padding-right: 0;
-    }
 
     li.listItem a.btn.btn-01{
         font-size: 1.5em;
         padding:15px 0;
     }
 
+    div.itemDetails a.btn.btn-01{
+        position: initial;
+        margin-top:20px
+    }
 
+    div.navListItem{
+        display: none;
+    }
+
+    .select-items,
+    .select-selected{
+        display: none;
+    }
+
+    .custom-select select {
+        display: block; /* hide original SELECT element: */
+    }
+
+
+    div.itemDetails {
+        font-size: 1.4em;
+        line-height: 30px;
+    }
+
+    div.wrpGalleryItem ul.galleryItem li img{
+        
+        height: inherit;
+    }
+
+    section.srcConvida div.addUnit{
+        text-align: left;
+    }
+
+    section.srcConvida div.addUnit .unitTagSrc {
+        padding: 8px 6px;
+        font-size: 1.1em;
+        float: left;
+        margin: 4px 3px;
+    }
+
+    section.result ul li figure img.tagExtOpt {
+        width: 85px;
+    }
+
+    div.wrpSrcConvida p{
+        font-size: 1.8em;
+    }
+
+    div.wrpSrcConvida.formart2 p{
+        width: 70%;
+        margin:auto
+    }
+
+    ul.wrpUnitTags {
+        width: 100%;
+    }
+
+    div.itemRating ul {
+        display: table;
+        width: inherit;
+        float: right;
+    }
+
+    div.joinChat{
+        position: fixed;
+        right: 20px;
+        bottom:20px;
+        z-index: 999;
+    }
+
+    span.infoShowcase{
+        color: white;
+        font-size: 1.5rem;
+        background: #BDBFC1;
+        width: 100%;
+        float: left;
+        padding: 4px 10px 10px 10px;
+        margin-left: -7px;
+        margin-top: 27px;
+    }
+    
+    .showcase {
+        margin-top: 1px;
+        padding-top: 35px;
+    }
+
+    span.infoShowcase span{
+        color:#797979;
+    }
+    
+    p.counter {
+        margin-top: -32px;
+        font-size: 1.4rem;
+    }
+
+
+    div.wrpGalleryItem .trashAndLikeBtn {
+        margin-top:15px;
+    }
+    
+    div.container.fullMobileCase{
+        padding:0;
+    }
+
+    section.result ul li.itemRes {
+        padding: 25px;
+    }
+
+    section.result ul li figure img.itemLogo {
+        width: 180px;
+
+    }
+    section.result ul li .wrpResults .headerResultArea {
+        margin-bottom: 42px;
+    }
+
+    div.itemRating {
+        margin-top:-50px;
+    }
+
+    section.result ul li .wrpResults h2 {
+        font-size: 2.5rem;
+         padding-top: 42px;
+        box-sizing: border-box;
+
+    }
+
+    img.tagSold, img.tagReserved {
+        width: 110px;
+        margin-top: 10px;
+
+    }
 }
 
 
