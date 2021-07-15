@@ -12,9 +12,8 @@
     padding:0;
 }
 
-html{
+html, body{
     touch-action: pan-x pan-y;
-    height: 100%;
 }
 
 a{
@@ -30,7 +29,6 @@ li{
 img{
     display: block;
     max-width: 100%;
-    max-height: 100%;
 }
 
 input:focus,
@@ -38,6 +36,10 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+input{
+    border: none;
 }
 
 button{
@@ -52,6 +54,25 @@ select{
     -webkit-appearance: none;
 }
 
+input[type="date"]::before {
+    content: attr(placeholder);
+    position: absolute;
+    color: #999999;
+  }
+  
+  input[type="date"] {
+    color: #ffffff;
+  }
+  
+  input[type="date"]:focus,
+  input[type="date"]:valid {
+    color: #666666;
+  }
+  
+  input[type="date"]:focus::before,
+  input[type="date"]:valid::before {
+    content: "";
+  }
 
 
 /* CUSTOM SELECT */
@@ -60,7 +81,7 @@ select{
 /*the container must be positioned relative:*/
 .custom-select {
     position: relative;
-    font-family: "Miso Bold";
+    font-family: "Miso Bold" !important;
     font-size: 1.4em;
   }
   
@@ -82,6 +103,10 @@ select{
     height: 15px;
     /* border: 6px solid transparent; */
     background: url("../img/arrow_down_BDBFC1.png") no-repeat right/ 20px;
+  }
+
+  .toSchedule .select-selected:after {
+    background: url("../img/icon-schedule.png") no-repeat right/ 20px;
   }
   
   /*point the arrow upwards when the select box is open (active):*/
@@ -140,12 +165,22 @@ select{
 
 
 
-
-
 /* PADRÕES */
 
 body, html{
     font-family: "Miso Bold";
+}
+
+.alpha{
+    padding-left:0;
+}
+
+.beta{
+    padding-top:0 !important;
+}
+
+.omega{
+    padding-right: 0;
 }
 
 div.container{
@@ -164,16 +199,31 @@ div.separate{
     clear:both;
 }
 
+div.separate30{
+    display: table;
+    clear: both;
+    float: left;
+    width: 100%;
+    height: 30px;
+}
+
+div.separate170{
+    display: table;
+    clear: both;
+    float: left;
+    width: 100%;
+    height: 170px;
+}
+
+
 div.content{
-    /* display: grid; */
-    padding:60px 0 40px 0;
+     padding:60px 0 40px 0;
 }
 
 .btn{
     text-align: center;
     display: block;
     padding: 5px 20px;
-    /* float: left; */
     background: rgb(185, 185, 185);
     border-radius: 5px;
     color:#ffffff;
@@ -197,6 +247,18 @@ div.content{
     float:none;
 }
 
+.col-2{
+    width: 50%;
+    float: left;
+}
+
+.color78B4C3{
+    color: #78B4C3;
+}
+
+.colorRed{
+    color:red;
+}
 
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -210,6 +272,54 @@ div.content{
 
 
 
+
+/* REGRESSIVE */
+
+.regressive{
+    width: 100%;
+    background:#F2EFEC;
+    position: fixed;
+    z-index: 99;
+    box-shadow: 0px -76px 10px 76px #b5b5b5;
+}
+
+.regressive a.btn{
+    width: 210px;
+    padding: 10px 40px;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+}
+
+.regressive span{
+    font-size: 2rem;
+    color:#727376;
+}
+
+.regressive .wrpReg span{
+    text-align: center;
+    color:#78B4C3;
+    width: 100%;
+    display: block;
+    font-size: 3rem;
+    line-height: 36px;
+}
+
+.regressive .wrpReg span:first-child{
+    font-size: 1.5rem;
+}
+
+div.col:last-child{
+    align-items: flex-end;
+}
+
+div.col{
+    width: 33.3%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    float: left;
+    height: 115px;
+}
 
 
 
@@ -229,6 +339,41 @@ header figure img.logo{
     position:absolute;
     padding:0 30px;
 }
+
+div.addressRes{
+    text-align: center;
+    color:#bdbfc1;
+    font-size: 1.3rem;
+    margin-top:20px;
+}
+
+div.addressRes i{
+    font-size: 2rem;
+    margin-bottom:10px
+}
+
+input#datepicker{
+    font-family: "Miso Bold";
+    font-size: 1.25rem;
+    color:#bdbfc1;
+    background: url(../img/icon-schedule.png) no-repeat right / 20px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+a.srcBack{
+    text-align: center;
+    color: #727376;
+    font-size: 1.25rem;
+    margin-top:40px;
+}
+
+a.srcBack i{
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+
 
 
 
@@ -296,7 +441,7 @@ p.msgTop{
     font-size: 1.6em;
     color:#727376;
     width: 100%;
-    max-width: 675px;
+    max-width: 775px;
     margin:auto
 }
 
@@ -304,7 +449,6 @@ div.addUnit{
     display: table;
     margin:auto;
     width: 100%;
-    /* background: gray; */
 }
 
 ul.wrpUnitTags{
@@ -339,7 +483,6 @@ div.addUnit .unitTag{
     border-radius: 7px;
     border:2px solid #BDBFC1;
     margin: 5px 3px;
-    /* background: url(../img/icon_close.png) no-repeat 95% / 12px; */
     float:left;
     position: relative;
     cursor:context-menu;
@@ -364,7 +507,6 @@ div.rangeDate{
     margin:auto;
     width: 100%;
     max-width: 275px;
-    /* background: rgb(255, 238, 0); */
     text-align: center;
     margin-top:25px;
     margin-bottom:20px;
@@ -398,13 +540,11 @@ div.rangeDate input{
     font-size: 2em;
     color: #a0cbd5;
     width: 105px;
-    /* background: burlywood; */
 }
 
 
 div.filterOptions{
     display: table;
-    /* background: rgb(119, 255, 226); */
     margin:auto;
     border:2px solid #bdbfc1;
     border-radius: 15px;
@@ -427,7 +567,6 @@ div.wrpFilter{
     float:left;
     width: 160px;
     border-right:2px solid #bdbfc1;
-    /* background: rgb(119, 255, 226); */
     padding:10px 10px 10px 7px;
     box-sizing: border-box;
 }
@@ -446,7 +585,7 @@ div.wrpFilter select{
 div.externalOptions{
     display: table;
     margin:auto;
-    padding:30px 0;
+    padding-top:30px;
     box-sizing: border-box;
 }
 
@@ -477,7 +616,7 @@ button.btnSearch{
     background: #ff9717;
     color:#fff;
     display: table;
-    margin:0 auto 10px auto;
+    margin:30px auto 10px auto;
     border-radius: 5px;
     width: 90%;
     max-width: 350px;
@@ -488,12 +627,394 @@ button.btnSearch{
 
 
 
+/* OFFER DETAILS */
+
+.descriptionTheme .container{
+    margin-top:40px
+}
+
+
+.detailedTheme.col-2{
+    float: right;
+    background: #A0CBD5;
+    padding: 61px 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-top: 40px;
+    border: 2px solid #FEFEFE;
+    width: 45%;
+}
+
+.detailedTheme.col-2 p{
+    line-height: 40px;
+}
+
+section.offerDetails figure{
+    margin:auto;
+    display: table;
+}
+
+section.offerDetails figure img{
+    width: 250px;
+    margin-bottom: 50px;
+}
+
+div.galleryOffer .owl-nav button{
+    overflow: hidden;
+    text-indent: -999px;
+    width: 40px;
+    height: 40px;
+}
+
+div.galleryOffer .owl-nav button.owl-prev{
+    background: url(../svg/chevron-left-solid.svg) no-repeat center center / 30px 30px !important;
+    position: absolute;
+    top:43%;
+}
+
+div.galleryOffer .owl-nav button.owl-next{
+    background: url(../svg/chevron-right-solid.svg) no-repeat center center / 30px 30px !important;
+    position: absolute;
+    top:43%;
+    right: 0;
+}
+
+div.galleryOffer .trashAndLikeBtn{
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+div.listItemsDesc.col-2 ul{
+    float:left;
+    font-size: 1.8rem;
+    color: #727272;
+    line-height: 46px;
+}
+
+section.offerDetails ul li i {
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+
+section.srcConvida div.barDescTheme{
+    background:#727376;
+    display: table;
+    text-align: center;
+    width: 100%;
+    float: left;
+}
+
+section.srcConvida div.barDescTheme p{
+    display:table;
+    margin:auto;
+    color:white;
+    font-size: 1.3rem;
+    padding:7px 0;
+    box-sizing: border-box;
+}
+
+div.moreInfoTheme{
+    text-align: center;
+    line-height: 36px;
+}
+
+section.srcConvida div.moreInfoTheme p{
+    line-height: 36px;
+}
+
+div.moreInfoTheme ul li{
+    font-size: 1.6rem;
+    color:#727376;
+}
+
+
+
+
+
+/* OUR TEAM */
+
+div.team{
+    float:left;
+}
+
+div.wrpTeam{
+    width: calc(33.3% - 20px);
+    float: left;
+    padding:0 10px;
+    height: 215px;
+}
+
+div.wrpTeam a.btn{
+    width: 150px;
+    font-size: 1.5em;
+    margin: auto;
+    right: 0;
+    left: 0;
+    color:white;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -35px;
+    padding: 5px 10px;
+}
+
+div.wrpTeam a.btn.promo1{
+    color:#78B4C3;
+    background: white;
+}
+
+div.wrpTeam a.btn.promo2{
+    background:#FF9717;
+}
+
+div.wrpTeam h3,
+div.wrpTeam span{
+    font-size: 1.5rem;
+    color: #727376;
+}
+
+div.wrpTeam figure{
+    display: table;
+    float:left;
+    padding-right:10px;
+    height: 100%;
+}
+
+div.wrpTeam figure img{
+    width: 100%;
+    max-width: 150px;
+} 
+
+section.ourTeam div.wrpTeam p{
+    text-align: left;
+    color: white;
+    font-size: 1.4rem;
+}
+
+section.result p.dateResults.parag02{
+    font-size: 1.5rem;
+}
+
+div.wrpTeam h2{
+    font-size:2.5rem;
+    color:#ff9717
+}
+
+div.destaque div.wrpTeam{
+    width: calc(33.3% - 20px);
+    border:1px solid #BDBFC1;
+    border-radius: 10px;
+    margin: 0 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    height: inherit;
+    min-height: 240px;
+    justify-content: center;
+    align-items: center;
+}
+
+div.destaque div.wrpTeam div.grp{
+    flex-wrap: wrap;
+    transform: scale(1.2);
+}
+
+div.wrpTeam ul li{
+    font-size: 1.2rem;
+    color: #727376;
+    text-align: left;
+    letter-spacing: -.5px;
+    line-height: 26px;
+}
+
+div.wrpTeam ul li i{
+    font-size: 1rem;
+    margin-right: 5px;
+    
+}
+
+div.destaque.linePromo{
+    width: 100%;
+}
+div.destaque.linePromo div.wrpTeam{
+    width: calc(50% - 20px);
+    border: 5px solid white;
+    text-align: center;
+    border-radius: 20px;
+    padding: 15px 15px 15px 15px;
+    position: relative;
+    display: flex;
+    min-height: 335px;
+}
+
+div.destaque.linePromo div.wrpTeam span{
+    color:white;
+    font-size: 2rem;
+    line-height: 30px;
+}
+
+div.destaque.linePromo div.wrpTeam p{
+    color:#727376;
+}
+
+div.destaque.linePromo div.wrpTeam h2{
+    color:white;
+    font-size: 4rem;
+    line-height: 50px;
+}
+
+div.destaque.linePromo div.wrpTeam p.l1{
+    font-size: 1.5rem;
+}
+
+div.destaque.linePromo div.wrpTeam p.l2{
+    font-size: 2.5rem;
+    margin-top:10px
+}
+
+div.destaque.linePromo div.wrpTeam p.l2 i{
+    font-size:2rem;
+    color:#FF9717
+}
+
+div.destaque div.wrpTeam h3 span{
+    text-transform: uppercase;
+}
+
+div.destaque.linePromo div.wrpTeam.borderOrange{
+    border-color:#FF9717;
+}
+
+
+
+
+div.team.destaque.linePromo.stl2 div.wrpTeam ul{
+    margin-left: 15px;
+    margin-bottom:20px
+}
+
+
+div.team.destaque.linePromo.stl2 div.wrpTeam ul li{
+    font-size: 1.5rem;
+    padding: 3px 0;
+}
+
+div.destaque.linePromo.stl2 div.wrpTeam{
+    min-height: 380px;
+}
+
+div.destaque.linePromo.stl2 div.wrpTeam p.l2 {
+    position: absolute;
+    top: 100px;
+    left: 30px;
+}
+
+div.destaque.linePromo div.wrpTeam.borderOrange img{
+    position:absolute;
+    top:10px;
+    left:10px;
+}
+
+div.destaque div.wrpTeam p{
+    color: #BDBFC1;
+    font-size:1.5rem
+}
+
+
+
+
+/* TESTIMONIAL */
+
+
+.owl-carousel.testmonial {
+    margin: auto;
+}
+
+.owl-carousel .owl-video-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+.owl-carousel.testmonial .item{
+     border-radius: 20px;
+    overflow: hidden;
+}
+
+.owl-carousel.testmonial i{
+    font-size: 2rem;
+}
+
+.owl-carousel .owl-video-tn {
+    background-size: cover !important;
+}
+
+.owl-carousel.testmonial img.btnVideo{
+    position: absolute;
+    z-index: 999;
+    display: table;
+     top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 0;
+    color:white;
+    text-align: center;
+    transform: scale(1.3,1.3) !important;
+}
+
+.owl-carousel.testmonial .posterVideo{
+    position: absolute;
+    z-index: 9;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.owl-carousel .owl-video-play-icon {
+    background: url(../img/owl.video.play.png) no-repeat !important;
+    transform: scale(1.3,1.3) !important;
+}
+
+.owl-carousel.testmonial .owl-video-wrapper{
+    width: 600px;
+    height: 335px;
+    margin:auto
+}
+
+.owl-carousel.testmonial .owl-dots {
+   bottom: -50px;
+   top:inherit;
+   columns: gray;
+}
+
+.owl-carousel.testmonial button{
+    margin:0 5px
+}
+
+.owl-carousel.testmonial button.owl-dot span{
+    background:#bdbfc1;
+    width: 15px;
+    height: 15px;
+}
+
+.owl-carousel.testmonial button.owl-dot.active span{
+    background:white;
+    width: 15px;
+    height: 15px;
+}
+
+
+
+
+
+
 /* SECTION RESULTS */
 
 section.result{
     background: #F2EFEC;
-    padding: 40px 0;
-    /* display: flex; */
+    padding: 40px 0 20px 0;
 }
 
 section.result.clr2{
@@ -502,6 +1023,14 @@ section.result.clr2{
 
 section.result.clr3{
     background:#fffffF;
+}
+
+section.result .clr4{
+    color:#9FDB28;
+}
+
+section.result .clr5{
+    color: #A0CBD5
 }
 
 section.result p.dateResults{
@@ -516,33 +1045,25 @@ section.result p.dateResults.dataRes02{
 }
 
 section.result p.dateResults.dataRes03{
-    color:#A0CBD5;
+    color:#78B4C3;
 }
 
+section.result p.dateResults.dataRes04{
+    color: #565658;
+}
 
 section.result ul.listItem{
     float: left;
-    /* background: red; */
     position: relative;
 }
 
 section.result ul li.itemRes{
-    /* background: chartreuse; */
     box-sizing: border-box;
     padding:7px;
     float: left;
     width: 100%;
     
 }
-
-/* section.result ul li.item:first-child{
-    padding-left:0;
-}
-
-section.result ul li.item:last-child{
-    padding-right: 0;
-} */
-
 
 section.result.otherSuggestionsResults ul li .wrpResults{
     border: 1px solid #D2D3D5;
@@ -660,13 +1181,6 @@ section.result ul li figure img.tagExtOpt{
     width: 65px;
 }
 
-div.itemResultControls, .owl-nav{
-    /* display: table;
-    width: 100%;
-    padding:0 10px 0 10px;
-    box-sizing: border-box; */
-}
-
 ol.bulletsGroup{
     margin: 5px auto 0 auto;
     display: table;
@@ -702,14 +1216,14 @@ div.itemResultControls span.next,
     float:right;
 }
 
-.owl-nav{
+div.testaCarousel .owl-nav{
     position: absolute;
     top:-37px;
     width: 100%;
     height: 40px;
 }
 
-.owl-nav button span{
+div.testaCarousel .owl-nav button span{
     position: absolute;
     z-index: 999;
     padding:10px;
@@ -759,15 +1273,15 @@ div.wrpGalleryItem{
     position: relative;
 }
 
-div.wrpGalleryItem .trashAndLikeBtn{
+.trashAndLikeBtn{
     position: absolute;
     top:0;
     right: 0;
     margin-top: 5px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
-div.wrpGalleryItem .trashAndLikeBtn span{
+.trashAndLikeBtn span{
     background: #ffffff;
     display: table;
     float:left;
@@ -777,13 +1291,15 @@ div.wrpGalleryItem .trashAndLikeBtn span{
     margin:3px;
     border: 2px solid #BDBFC1;
     cursor: pointer;
-    /* width: 13px;
-    height: 13px; */
+    width: 27px;
+    height: 27px;
 }
 
-div.wrpGalleryItem .trashAndLikeBtn span img{
-    width: 13px;
+.trashAndLikeBtn i{
+    width: 20px;
+    height: 20px;
 }
+
 
 div.wrpGalleryItem ul.galleryItem li img{
     width:100%;
@@ -832,7 +1348,6 @@ div.itemDetails a.viewPrice{
 
 
 div.itemRating{
-    /* background: red; */
     display: table;
     float: right;
     margin-top:-41px;
@@ -843,7 +1358,6 @@ div.itemRating{
 div.itemRating ul{
     display: table;
     width: 100%;
-    /* background: chartreuse; */
 }
 
 div.itemRating ul li.star{
@@ -877,7 +1391,6 @@ div.navListControls{
 
 div.navListItem{
     width: 100%;
-    /* background:greenyellow; */
     float: left;
     position: relative;
     height: 60px;
@@ -930,7 +1443,7 @@ section.srcConvida{
 div.wrpSrcConvida{
     width: 100%;
     background: white;
-    display: table;
+    display: flow-root;
     padding:50px 0;
 }
 
@@ -939,12 +1452,16 @@ div.wrpSrcConvida.formart2{
     box-sizing: border-box;
 }
 
-section.srcConvida p{
+section.srcConvida p,
+section.ourTeam p{
     font-size: 1.5em;
     text-align: center;
     color: #727376;
-    line-height: 36px;
+    line-height: 30px;
+}
 
+section.ourTeam p{
+    color:#565658;
 }
 
 section.srcConvida .btnSearch{
@@ -975,10 +1492,6 @@ section.srcConvida div.addUnit .unitTagSrc {
     border: 1px solid #A0CBD5 !important;
 
 }
-
-
-
-
 
 
 
@@ -1091,7 +1604,30 @@ div.joinChat a img{
     div.navListItem{
         display: none;
     }
+}
 
+@media screen and (max-width: 1140px){
+
+    div.wrpTeam {
+        width: 100%;
+        float: left;
+        padding: 0;
+        height: 180px;
+        max-width: 450px;
+    }
+
+    div.destaque div.wrpTeam {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        margin-bottom:15px;
+    }
+
+    div.team{
+        float: none;
+        margin: auto;
+        display: table;
+    }
 
 }
 
@@ -1101,7 +1637,6 @@ div.joinChat a img{
 
 
     /**** MOBILE ADJUSTMENTS *****/
-
 
 
     /* HEADER  */
@@ -1131,6 +1666,7 @@ div.joinChat a img{
         padding:27px 20px;
         box-sizing: border-box;
     }
+
 
 
 
@@ -1178,10 +1714,6 @@ div.joinChat a img{
         margin-left: 0;
     }
 
-
-
-
-
     div.rangeDate {
         margin: 25px 0 20px 0;
     }
@@ -1202,6 +1734,7 @@ div.joinChat a img{
     div.externalOptions {
         margin:inherit;
     }
+
 
 
 
@@ -1243,10 +1776,91 @@ div.joinChat a img{
         margin:10px 0
     }
 
+    div.addressRes{
+        text-align: left;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        float:left
+    }
+
+    div.addressRes i{
+        margin-right: 10px;
+        float: left;
+    }
 }
 
+@media screen and (max-width: 700px){
+
+    .owl-carousel.testmonial .owl-video-wrapper{
+        width: 300px;
+        height: 168px;
+    }
+
+}
 
 @media screen and (max-width: 620px){
+
+    div.listItemsDesc.col-2,
+    div.listItemsDesc.col-2 ul,
+    .detailedTheme.col-2{
+        width: 100%;
+    }
+
+    div.listItemsDesc.col-2{
+        margin-top: 130px;
+    }
+
+    .descriptionTheme .result .container {
+        margin-top: 0px;
+    }
+
+    div.barDescTheme span{
+        width: 100%;
+        float: left;
+        font-size: 1.7rem;
+    }
+
+    div.moreInfoTheme h2{
+        font-size: 2rem;
+        line-height: 36px;
+        margin-bottom: 10px;
+    }
+
+    div.moreInfoTheme ul{
+        width: calc(100% - 25px);
+        margin-left: 27px;
+        line-height: 30px;
+    }
+
+    div.moreInfoTheme ul li{
+        text-indent: -13.5px;
+        padding: 4px 0;
+    }
+
+    div.moreInfoTheme,
+    div.moreInfoTheme p{
+        text-align: left;
+    }
+
+    div.barDescTheme span:nth-child(2){
+        display: none;
+    }
+
+    .detailedTheme.col-2 {
+        margin-top:0;
+        border:0;
+        border-radius: 0;
+        font-size: 0.9rem;
+        position: absolute;
+        left: 0;
+        padding: 15px 30px;
+        box-sizing: border-box;
+    }
+
+    .detailedTheme.col-2 p{
+        line-height:inherit;
+        letter-spacing: -.5px;
+    }
 
     div.wrpFilter {
         width: 32%;
@@ -1281,7 +1895,7 @@ div.joinChat a img{
     section.result p.dateResults{
         font-size: 2.1em;
         text-align: left;
-        padding: 0 25px;
+        padding: 0 25px 20px 25px;
         box-sizing: border-box;
     }
 
@@ -1309,7 +1923,6 @@ div.joinChat a img{
         display: block; /* hide original SELECT element: */
     }
 
-
     div.itemDetails {
         font-size: 1.4em;
         line-height: 30px;
@@ -1336,7 +1949,7 @@ div.joinChat a img{
     }
 
     div.wrpSrcConvida p{
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 
     div.wrpSrcConvida.formart2 p{
@@ -1396,7 +2009,7 @@ div.joinChat a img{
     }
 
     section.result ul li.itemRes {
-        padding: 25px;
+        padding: 0 25px;
     }
 
     section.result ul li figure img.itemLogo {
@@ -1423,9 +2036,180 @@ div.joinChat a img{
         margin-top: 10px;
 
     }
+    
+    section.testmonial div.container{
+        padding: 0;
+    }
+
+    div.team div.wrpTeam{
+        height: 210px;
+    }
+
+    div.destaque div.wrpTeam {
+        height: inherit;
+        margin: 0 0 15px 0;
+        min-height: inherit;
+    }
+
+    div.wrpTeam a.btn{
+        width: 125px;
+    font-size: 1.3em;
+    margin-bottom: -30px;
+    }
+
+
+    div.team div.wrpTeam.mobileAlign figure{
+        margin-right: 0;
+        margin-left: 15px;
+        float: right;
+    }
+
+    div.team div.wrpTeam.mobileAlign,
+    div.team div.wrpTeam.mobileAlign p{
+        text-align: right;
+    }
+
+    section.ourTeam div.separate30{
+        display: none;
+    }
+
+    div.wrpTeam figure img {
+        margin-top:10px;
+        max-width: 160px;
+    }
+
+    
+    section.ourTeam > div.container >  p{
+        padding:0 0 20px 0;
+        text-align: left;
+    }
+
+    section.ourTeam div.wrpTeam p {
+        line-height: 25px;
+    }
+
+    .owl-carousel.testmonial .owl-video-wrapper{
+        width: 380px;
+        height: 213px;
+
+    }
+   
+    section.result p.dateResults.titleMobileAlign{
+        padding-left: 0;
+    }
+
+    div.destaque.linePromo{
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    div.destaque.linePromo div.wrpTeam{
+        margin: 0 5px;
+    }
+
+    div.destaque.linePromo div.wrpTeam {
+        width: calc(50% - 10px);
+    }
+
+    div.destaque.linePromo div.wrpTeam h2 {
+        font-size: 2.7rem;
+        line-height: 36px;
+        letter-spacing: -1px;
+    }
+    div.destaque.linePromo div.wrpTeam span {
+        font-size: 1.4rem;
+    }
+
+    div.destaque.linePromo div.wrpTeam p.l1 {
+        font-size: 1.1rem;
+        letter-spacing: -.5px;
+    }
+
+    div.destaque.linePromo div.wrpTeam{
+        min-height: 320px;
+    }
+
+    div.destaque.linePromo div.wrpTeam.borderOrange{
+        padding-top:80px;
+    }
+
+    div.team.destaque.linePromo.stl2 div.wrpTeam.borderOrange{
+        padding-top:60px;
+    }
+
+    div.team.destaque.linePromo.stl2 div.wrpTeam{
+        min-height: 380px;
+    }
+
+    div.team.destaque.linePromo.stl2 div.wrpTeam ul{
+        margin-left: 0;
+        margin-bottom:0
+    }
+    
+    div.team.destaque.linePromo.stl2 div.wrpTeam ul li{
+        font-size: 1.2rem;
+        padding:0;
+    }
+    
+    div.destaque.linePromo.stl2 div.wrpTeam p.l2 {
+        top: 90px;
+        left: 10px;
+    }
+
+    div.destaque.linePromo div.wrpTeam.borderOrange img {
+        width: 60px;
+    }
+
+    div.destaque.linePromo div.wrpTeam p.l2 {
+        font-size: 1.7rem;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    .regressive a.btn {
+        width: 170px;
+        padding: 7px 14px;
+        margin-top: 15px;
+    }
+
+    .regressive .wrpScale{
+        height: 100px;
+    }
+
+    div.col {
+        width: 86%;
+        height: inherit;
+    }
+
+    .regressive{
+        padding: 20px 0 15px 0;
+    }
+
+    .regressive .wrpReg span {
+        text-align: left;
+    }
+
+    .regressive .wrpReg span:last-child{
+        padding: 0 25px;
+        box-sizing: border-box
+    }
+    
+    div.col:last-child{
+        position: absolute;
+    }
+
+    .regressive span{
+        font-size: 1.6rem;
+        line-height: 20px;
+        /* transform: scale(1,1);
+        transition: .5s; */
+    }
+
+    .regressive .wrpReg span:first-child{
+        font-size: 1.25rem;
+    }
+
+    
 }
-
-
 
 @media screen and (max-width: 500px){
 

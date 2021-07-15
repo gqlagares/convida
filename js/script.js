@@ -8,22 +8,28 @@ $(function(){
 
 
     $("span.unitTagSrc").on('click', function(){
+
       $("span.unitTagSrc.active").removeClass("active");
+
       $(this).addClass("active");
+
     })
 
     $("span.like").on('click', function(){
+
         $(this).children("img").attr('src', (_, attr) => attr == 'img/icon_like.png' ? 'img/icon_like_red.png?2107042006' : 'img/icon_like.png')
+        
         $(this).css('background', '#F2EFEC');
+
     })
 
 
     $(".owl-results").each(function() {
+
         $(this).owlCarousel({
+
             mouseDrag: false,
-            // touchDrag: false,
             dots:false,
-            // nav: true,
             responsive: {
                 0: {
             
@@ -51,7 +57,9 @@ $(function(){
     })
 
     $(".testaCarousel").each(function() {
+
         $(this).owlCarousel({
+
             mouseDrag: false,
             touchDrag: false,
             rewind:true,
@@ -61,33 +69,75 @@ $(function(){
             navText:['<span class="prev"><img src="img/arrow_left_F2EFEC.png" alt=""></span>','<span class="next"><img src="img/arrow_right_F2EFEC.png" alt=""></span>'],
             dots: true,
             onInitialized: function(e) {
+
                 $(this).find('p.counter').text('1/' + this.items().length)
                 console.log();
-              }
+
+            }
             
         });
 
         $(this).on('changed.owl.carousel', function(e) {
             $(this).closest('.wrpResults').find('p.counter').text(e.item.index + 1 + '/' + e.item.count)
 
-            // $(this).find('span.trash').on('click', function(){
-
-            
-            //     $(this).closest('.testaCarousel').trigger('remove.owl.carousel',1).trigger('refresh.owl.carousel');
-            // })
         });
+    });
 
-        
+    $(".galleryOffer").each(function() {
+
+        $(this).owlCarousel({
+            loop: true,
+            nav:true,
+            dots:false,
+            responsive: {
+                0: {
+            
+                    items: 1
+                },
+                600: {
+
+                    items: 3
+                },
+                1100: {
+                    items: 3
+                }
+            }
+        });
 
     });
 
+    $("div.testmonial").each(function() {
+
+        $(this).owlCarousel({
+
+            nav:false,
+            dots:true,
+            items:1,
+            video:true,
+            mouseDrag: false,
+            touchDrag: false, 
+            
+        });
+
+    });
+
+    $( "#datepicker" ).datepicker();
 
 
+    $('.posterVideo').click(function(){
+
+            $(this).hide();
+
+            $(this).closest('.item').find('.videoTest').trigger('play');
+
+
+
+    })
+
+       
 
 })
   
-
-
 
 // SELECT CUSTOM
 
@@ -99,6 +149,8 @@ l = x.length;
 for (i = 0; i < l; i++) {
   selElmnt = x[i].getElementsByTagName("select")[0];
   ll = selElmnt.length;
+
+  console.log(ll);
 
   /*for each element, create a new DIV that will act as the selected item:*/
   a = document.createElement("DIV");
